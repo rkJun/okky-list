@@ -4,7 +4,7 @@
   "description": "A simple Module that fetches latest article about developer's life on OKKY",
   "main": "lib/index.js",
   "bin": {
-    "okky-list": "./bin/okky-list"
+    "okky-list": "./bin/okky-list.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
