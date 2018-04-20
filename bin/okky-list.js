@@ -2,19 +2,42 @@
 
 const cheerio = require('cheerio');
 const request = require('request');
-const pad = require('pad');
-
+const pad     = require('pad');
+const program = require('commander');
 
 const BASE_HOST = 'https://okky.kr';
-const BASE_URL = `${BASE_HOST}/articles/community?query=&sort=id&order=desc`;
+const BASE_URL = `${BASE_HOST}/articles/`;
 
-request(BASE_URL, function(error, response, html){
+program
+  .version('okky-list 1.1.0', '-v, --version')
+  .usage('[options]')
+  .option('-l, --list [item]', 'add list filter by questions, tech, community, columns, jobs', /^(questions|tech|community|columns|jobs)$/i, 'community')
+  .option('-n, --number <number>', 'the last [number] lines allowed 1...20', parseInt, 20)
+  .option('-s, --sort [item]', 'order by id, voteCount, noteCount, scrapCount, viewCount')
+  .parse(process.argv);
+
+let uri = BASE_URL;
+if( program.list ) {
+  uri += program.list;
+}
+if ( program.number < 0 || program.number > 21) {
+  console.error ('Warning : Minimum count is 0, maximum count is 20, defauilt is 20');
+}
+
+if ( program.sort ) {
+  uri += `?query=&sort=${program.sort}&order=desc`;
+}
+
+request(uri, function(error, response, html){
   if (error) {throw error; };
 
   let $ = cheerio.load(html);
 
   $('.list-group-item').each(function(i, elem) {
 
+    if ( i >= program.number ) {
+        return false;
+    }
     let title = $(elem).find('.list-group-item-heading').text().trim();
     let author = $(elem).find('a.nickname').text().trim();
     let date = $(elem).find('span.timeago').text().trim();
