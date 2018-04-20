@@ -12,7 +12,7 @@ program
   .version('okky-list 1.1.0', '-v, --version')
   .usage('[options]')
   .option('-l, --list [item]', 'add list filter by questions, tech, community, columns, jobs', /^(questions|tech|community|columns|jobs)$/i, 'community')
-  .option('-n, --number <number>', 'the last [number] lines allowed 1...20', parseInt, 20)
+  .option('-n, --number <number>', 'the last [number] lines allowed 1...20', 20)
   .option('-s, --sort [item]', 'order by id, voteCount, noteCount, scrapCount, viewCount')
   .parse(process.argv);
 
@@ -20,8 +20,9 @@ let uri = BASE_URL;
 if( program.list ) {
   uri += program.list;
 }
-if ( program.number < 0 || program.number > 21) {
-  console.error ('Warning : Minimum count is 0, maximum count is 20, defauilt is 20');
+
+if ( program.number < 0 || program.number > 20) {
+  console.log ('Warning : Minimum count is 0, maximum count is 20, defauilt is 20');
 }
 
 if ( program.sort ) {
@@ -39,7 +40,7 @@ request(uri, function(error, response, html){
         return false;
     }
     let title = $(elem).find('.list-group-item-heading').text().trim();
-    let author = $(elem).find('a.nickname').text().trim();
+    let author = $(elem).find('.avatar-info .nickname').text().trim();
     let date = $(elem).find('span.timeago').text().trim();
 
     let commentCount = pad(3, $(elem).find('.list-group-item-summary li:nth-child(1)').text().trim() );
