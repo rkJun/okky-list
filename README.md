@@ -1,6 +1,8 @@
-okky-list
-
 # okky-list
+
+[![npm version](https://badge.fury.io/js/okky-list.svg)](https://badge.fury.io/js/okky-list)
+[![npm](https://img.shields.io/npm/dt/okky-list.svg)](https://www.npmjs.com/package/okky-list)
+
 
 [`okky_trend`](https://github.com/rkJun/okky_trend) nodejs version.
 
