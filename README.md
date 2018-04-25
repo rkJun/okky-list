@@ -45,3 +45,7 @@ $ okky-list -l tech -n 3 -s viewCount
 ## Inspired
 
 [git-trend](https://github.com/rochefort/git-trend).
+
+## License
+
+MIT : https://rkjun.mit-license.org/
