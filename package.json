@@ -1,6 +1,6 @@
 {
   "name": "okky-list",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A simple Module that fetches latest article about developer's life on OKKY",
   "main": "lib/okky-list.js",
   "bin": {
@@ -20,10 +20,10 @@
   "license": "MIT",
   "preferGlobal": true,
   "dependencies": {
-    "async": "^2.6.0",
+    "async": "^2.6.1",
     "cheerio": "^1.0.0-rc.2",
-    "commander": "^2.15.1",
-    "pad": "^2.0.3",
-    "request": "^2.85.0"
+    "commander": "^2.19.0",
+    "got": "^9.3.0",
+    "pad": "^2.2.1"
   }
 }

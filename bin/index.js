@@ -12,6 +12,6 @@ program
   .option('-s, --sort [item]', 'order by id, voteCount, noteCount, scrapCount, viewCount', 'id')
   .parse(process.argv);
 
-okkyList.getList(program, (result) => {
-  console.log( result );
+okkyList.getList(program).then(result => {
+  console.log(result);
 });
