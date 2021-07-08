@@ -1,0 +1,41 @@
+{
+    "name": "okky-list",
+    "version": "1.4.0",
+    "description": "A simple Module that fetches latest article about developer's life on OKKY",
+    "type": "commonjs",
+    "main": "main.js",
+    "bin": {
+        "okky-list": "dist/main.js"
+    },
+    "scripts": {
+        "dev": "ts-node main.ts",
+        "build": "tsc",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": "https://github.com/rkJun/okky-list",
+    "keywords": [
+        "okky",
+        "okjsp",
+        "command",
+        "line"
+    ],
+    "author": "Juntai Park",
+    "license": "MIT",
+    "preferGlobal": true,
+    "dependencies": {
+        "async": "^3.2.0",
+        "cheerio": "^1.0.0-rc.10",
+        "commander": "^8.0.0",
+        "got": "^11.8.2",
+        "pad": "^3.2.0"
+    },
+    "devDependencies": {
+        "@types/got": "^9.6.12",
+        "@types/node": "^16.0.1",
+        "eslint": "^7.30.0",
+        "prettier": "^2.3.2",
+        "ts-node": "^10.0.0",
+        "tslib": "^2.3.0",
+        "typescript": "^4.3.5"
+    }
+}
