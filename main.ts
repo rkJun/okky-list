@@ -3,6 +3,7 @@
 import { program, OptionValues } from 'commander';
 import * as pjson from './package.json';
 import { okkyList } from './lib/OkkyList';
+import ora from 'ora';
 
 program
   .version(`okky-list ${pjson.version}`, '-v, --version')
@@ -18,7 +19,10 @@ const optionValues: OptionValues = {
   sort: program.getOptionValue('sort')
 }
 
+const spinner = ora('Loading okky\n').start();
+
 okkyList.getList(optionValues).then(result => {
   console.log(result);
+  spinner.succeed('OK');
   process.exit(0);
 });
