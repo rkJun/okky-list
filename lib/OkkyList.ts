@@ -3,6 +3,7 @@ import cheerio from 'cheerio';
 import got from 'got';
 import pad from 'pad';
 import { URL } from 'url';
+import terminalLink from 'terminal-link';
 
 const BASE_HOST: string = 'https://okky.kr';
 const BASE_URL = `${BASE_HOST}/articles/`;
@@ -47,6 +48,7 @@ export default class OkkyList {
 
       let title = $(elem).find('.list-group-item-heading').text().trim();
       let link = 'https://okky.kr' + $(elem).find('.list-group-item-heading a').attr('href');
+      let linkedTitle = terminalLink(title, link);
       let author = $(elem).find('.avatar-info .nickname').text().trim();
       let date = $(elem).find('span.timeago').text().trim();
 
@@ -65,7 +67,7 @@ export default class OkkyList {
 
       output += [
         date,
-        ` [댓글: ${commentCount},좋아요:${likeCount},조회:${readCount}] ${title} [${author}] ${link}\n`,
+        ` [댓글: ${commentCount},좋아요:${likeCount},조회:${readCount}] ${linkedTitle} [${author}]\n`,
       ].join('');
 
       if (i === $('.list-group-item').length - 1) {

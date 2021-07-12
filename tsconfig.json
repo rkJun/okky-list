@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES2017",
+    "target": "ES2020",
     "module": "commonjs",
     "moduleResolution": "node",
     "strict": true,
@@ -15,7 +15,7 @@
     "emitDecoratorMetadata": true,
     // "declarationDir": "types",
     "outDir": "dist",
-    "lib": [ "es2015" ],
+    "lib": [ "es2020" ],
     "typeRoots": [
       "node_modules/@types"
     ]

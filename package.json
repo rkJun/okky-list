@@ -1,6 +1,6 @@
 {
   "name": "okky-list",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A simple Module that fetches latest article about developer's life on OKKY",
   "type": "commonjs",
   "main": "main.js",
@@ -28,7 +28,8 @@
     "commander": "^8.0.0",
     "got": "^11.8.2",
     "ora": "^5.4.1",
-    "pad": "^3.2.0"
+    "pad": "^3.2.0",
+    "terminal-link": "^2.1.1"
   },
   "devDependencies": {
     "@types/got": "^9.6.12",
