@@ -13,7 +13,7 @@ let uri: string | URL;
 export default class OkkyList {
   constructor() {}
 
-  public getList = (optionValues: OptionValues) => {
+  public getList = (optionValues: OptionValues): Promise<string | undefined> => {
     let { list, number, sort } = optionValues;
     uri = BASE_URL + list;
 
@@ -29,7 +29,7 @@ export default class OkkyList {
     return (async () => {
       try {
         const response = await got(uri);
-        const result = this.parseHtml(number, response.body);
+        const result: string = this.parseHtml(number, response.body);
         return result;
       } catch (error) {
         console.log(error);
@@ -37,9 +37,9 @@ export default class OkkyList {
     })();
   };
 
-  private parseHtml(number: Number, body: string) {
+  private parseHtml(number: Number, body: string): string {
     let $ = cheerio.load(body);
-    let output = '';
+    let output: string = '';
 
     $('.list-group-item').each(function (i, elem) {
       if (i >= number) {
