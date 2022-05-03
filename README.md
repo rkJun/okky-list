@@ -16,6 +16,9 @@ npm install --global okky-list
 
 # Using yarn
 yarn global add okky-list
+
+# Using pnpm
+pnpm install --global okky-list
 ```
 
 ## Usage of a command line tool
